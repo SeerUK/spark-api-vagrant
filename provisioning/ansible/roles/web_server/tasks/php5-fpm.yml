@@ -13,3 +13,8 @@
   template: src=../templates/php5-nginx-php.ini.j2 dest=/etc/php5/fpm/php.ini
   notify:
   - Restart PHP5 FPM
+
+- name: Install PHP5 Pool Configuration
+  template: src=../templates/php-fpm_www.conf.j2 dest=/etc/php5/fpm/pool.d/www.conf
+  notify:
+  - Restart PHP5 FPM
